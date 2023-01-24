@@ -5,7 +5,7 @@
 
 int arr[3][3];
 int i, j, x, y, m, n;
-int loopCondition = 0, winCondition = 0;
+int loopCondition = 0, winCondition=0;
 void initialize();
 void drawBoard();
 void takeUserInput();
