@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include <math.h>
 #include <stdlib.h>
-#include<time.h>
+#include <time.h>
 
 int arr[3][3];
-int i, j, x, y, input,input2=1;
+int i, j, x, y, m, n;
 int loopCondition = 0, winCondition = 0;
 void initialize();
 void drawBoard();
@@ -15,12 +15,12 @@ int main()
 {
     initialize();
     drawBoard();
-    while (winCondition!=1)
+    while (winCondition != 1)
     {
         takeUserInput();
         drawBoard();
         checkWinCondition();
-        if(winCondition==1)
+        if (winCondition == 1)
         {
             printf("player won");
             break;
@@ -28,7 +28,7 @@ int main()
         cpuInput();
         drawBoard();
         checkWinCondition();
-        if(winCondition==1)
+        if (winCondition == 1)
         {
             printf("cpu won");
             break;
@@ -63,82 +63,38 @@ void drawBoard()
 
 void takeUserInput()
 {
-    printf("Enter a number between 1-9 to place your move: ");
-    scanf(" %d", &input);
-    switch (input)
+    printf("Enter your move as (row, column): ");
+    scanf("%d %d", &x, &y);
+    x--;
+    y--;
+    if ((x > 3 || x < 0) || (y > 3 || y < 0))
     {
-    case 1:
-        arr[0][0] = 88;
-        break;
-    case 2:
-        arr[0][1] = 88;
-        break;
-    case 3:
-        arr[0][2] = 88;
-        break;
-    case 4:
-        arr[1][0] = 88;
-        break;
-    case 5:
-        arr[1][1] = 88;
-        break;
-    case 6:
-        arr[1][2] = 88;
-        break;
-    case 7:
-        arr[2][0] = 88;
-        break;
-    case 8:
-        arr[2][1] = 88;
-        break;
-    case 9:
-        arr[2][2] = 88;
-        break;
-    
-    default:
-        break;
+        printf("Please enter a valid number between 1-3");
+    }
+    else if(arr[x][y]==88||arr[x][y]==79)
+    {
+        printf("Please enter in an empty spot\n");
+    }
+    else
+    {
+        arr[x][y] = 88;
     }
 }
 
 void cpuInput()
-{   
+{
     printf("cpu move: \n");
     srand(time(NULL));
-    
-    input2 = 1 + rand()%9;
-    switch (input2)
+
+    while(arr[m][n]==88||arr[m][n]==79)
     {
-    case 1:
-        arr[0][0] = 79;
-        break;
-    case 2:
-        arr[0][1] = 79;
-        break;
-    case 3:
-        arr[0][2] = 79;
-        break;
-    case 4:
-        arr[1][0] = 79;
-        break;
-    case 5:
-        arr[1][1] = 79;
-        break;
-    case 6:
-        arr[1][2] = 79;
-        break;
-    case 7:
-        arr[2][0] = 79;
-        break;
-    case 8:
-        arr[2][1] = 79;
-        break;
-    case 9:
-        arr[2][2] = 79;
-        break;
-    
-    default:
-        break;
+        m=1+rand()%3;
+        n=1+rand()%3;
     }
+    m--;
+    n--;
+    arr[m][n] = 79;
+    
 }
 void checkWinCondition()
 {
