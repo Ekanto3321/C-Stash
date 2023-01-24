@@ -84,14 +84,13 @@ void takeUserInput()
 
 void cpuInput()
 {
-    printf("cpu move: \n");
-    srand(time(NULL));
-    cpuRandomizer();
-       
-    arr[m][n] = 79;
     
+    while ((arr[m][n] == 88) || (arr[m][n] == 79))
+    {
+        cpuRandomizer();
+    }
+    arr[m][n] = 79;
 
-    printf("%d %d\n", m + 1, n + 1);
 }
 
 void cpuRandomizer()
