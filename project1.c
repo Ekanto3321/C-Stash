@@ -3,7 +3,7 @@
 int main()
 {
 
-    printf("project example ");
+    printf("someone kill me please");
     
 
     return 0;
