@@ -104,19 +104,8 @@ void cpuInput()
 {   
     printf("cpu move: \n");
     srand(time(NULL));
-    for (i = 0; i < 3; i++)
-    {
-        for (j = 0; j < 3; j++)
-        {
-            arr[i][j];
-            while(input2==arr[i][j])
-            {
-                input2 = 1 + rand()%9;
-            }
-        }
-    }
     
-    
+    input2 = 1 + rand()%9;
     switch (input2)
     {
     case 1:
