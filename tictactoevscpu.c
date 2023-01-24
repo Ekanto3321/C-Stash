@@ -5,10 +5,11 @@
 
 int arr[3][3];
 int i, j, x, y, m, n;
-int loopCondition = 0, winCondition=0;
+int loopCondition = 0, winCondition = 0;
 void initialize();
 void drawBoard();
 void takeUserInput();
+void cpuRandomizer();
 void cpuInput();
 void checkWinCondition();
 int main()
@@ -71,7 +72,7 @@ void takeUserInput()
     {
         printf("Please enter a valid number between 1-3");
     }
-    else if(arr[x][y]==88||arr[x][y]==79)
+    else if (arr[x][y] == 88 || arr[x][y] == 79)
     {
         printf("Please enter in an empty spot\n");
     }
@@ -85,16 +86,20 @@ void cpuInput()
 {
     printf("cpu move: \n");
     srand(time(NULL));
-
-    while(arr[m][n]==88||arr[m][n]==79)
-    { 
-        m=1+rand()%3;
-        n=1+rand()%3;
-    }
-    m--;
-    n--;
+    cpuRandomizer();
+       
     arr[m][n] = 79;
     
+
+    printf("%d %d\n", m + 1, n + 1);
+}
+
+void cpuRandomizer()
+{
+    m = 1 + (rand() % 3);
+    n = 1 + (rand() % 3);
+    m--;
+    n--;
 }
 void checkWinCondition()
 {
