@@ -87,7 +87,7 @@ void cpuInput()
     srand(time(NULL));
 
     while(arr[m][n]==88||arr[m][n]==79)
-    {
+    { 
         m=1+rand()%3;
         n=1+rand()%3;
     }
